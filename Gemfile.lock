@@ -2,8 +2,8 @@ PATH
   remote: .
   specs:
     decidim-process_groups_content_block (0.14.3)
-      decidim-core (>= 0.14.3)
-      decidim-participatory_processes (>= 0.14.3)
+      decidim-core (~> 0.14)
+      decidim-participatory_processes (~> 0.14)
 
 GEM
   remote: https://rubygems.org/
@@ -692,8 +692,8 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (~> 1.3)
   byebug (~> 10.0)
-  decidim (>= 0.14.3)
-  decidim-dev (>= 0.14.3)
+  decidim (~> 0.14)
+  decidim-dev (~> 0.14)
   decidim-process_groups_content_block!
   faker (~> 1.9)
   letter_opener_web (~> 1.3)
