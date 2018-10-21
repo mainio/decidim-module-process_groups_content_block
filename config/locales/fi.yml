@@ -1,0 +1,11 @@
+fi:
+  decidim:
+    process_groups_content_block:
+      content_blocks:
+        highlighted_process_groups:
+          name: Korostetut prosessiryhmät
+      pages:
+        home:
+          highlighted_process_groups:
+            active_processes: 'Aktiiviset prosessit'
+            see_all_processes: 'Näytä kaikki prosessit'

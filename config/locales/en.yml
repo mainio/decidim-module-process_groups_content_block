@@ -1,0 +1,11 @@
+en:
+  decidim:
+    process_groups_content_block:
+      content_blocks:
+        highlighted_process_groups:
+          name: Highlighted process groups
+      pages:
+        home:
+          highlighted_process_groups:
+            active_processes: 'Active processes'
+            see_all_processes: 'Show all processes'
