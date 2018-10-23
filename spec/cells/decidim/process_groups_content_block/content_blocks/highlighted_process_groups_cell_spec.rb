@@ -28,6 +28,25 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
     end
   end
 
+  context "when there are process groups without any published processes" do
+    before do
+      local_participatory_process_groups.each_with_index do |group, i|
+        # Create only processes currently unpublished to all process groups
+        create_list(
+          :participatory_process,
+          5,
+          organization: organization,
+          participatory_process_group: group,
+          published_at: nil,
+        )
+      end
+    end
+
+    it "does not show the process groups" do
+      expect(subject).not_to have_selector "#highlighted-process-groups"
+    end
+  end
+
   context "when there are process groups with active processes" do
     before do
       past_start_date = Date.current - 11.days
@@ -35,7 +54,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
 
       local_participatory_process_groups.each_with_index do |group, i|
         if i < 2
-          # Create two process groups with only processes in the past
+          # Add only processes in the past to two process groups
           create_list(
             :participatory_process,
             5,
@@ -45,7 +64,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
             end_date: past_end_date,
           )
         else
-          # Create two process groups with only processes currently active
+          # Add only processes currently active to two process groups
           create_list(
             :participatory_process,
             5,
@@ -93,7 +112,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
 
       local_participatory_process_groups.each_with_index do |group, i|
         if i < 2
-          # Create two process groups with only processes in the past
+          # Add only processes in the past to two process groups
           create_list(
             :participatory_process,
             5,
@@ -103,7 +122,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
             end_date: past_end_date,
           )
         else
-          # Create two process groups with only processes in the future
+          # Add only processes in the future to two process groups
           create_list(
             :participatory_process,
             5,

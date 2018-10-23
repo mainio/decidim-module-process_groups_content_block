@@ -18,7 +18,11 @@ module Decidim
         def highlighted_groups
           Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcessGroups.new(
             current_organization
-          )
+          ).query
+          .joins(:participatory_processes)
+          .where.not(decidim_participatory_processes: { published_at: nil })
+          .group('decidim_participatory_process_groups.id')
+          .having('COUNT(decidim_participatory_processes.id) > 0')
         end
 
         def i18n_scope
