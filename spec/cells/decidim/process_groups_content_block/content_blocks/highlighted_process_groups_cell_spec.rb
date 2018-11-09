@@ -9,11 +9,11 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
   let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_process_groups, scope: :homepage }
 
   let!(:local_participatory_process_groups) do
-    create_list(:participatory_process_group, 4, organization: organization)
+    create_list(:participatory_process_group, 5, organization: organization)
   end
 
   let!(:foreign_participatory_process_groups) do
-    create_list(:participatory_process_group, 4)
+    create_list(:participatory_process_group, 5)
   end
 
   controller Decidim::PagesController
