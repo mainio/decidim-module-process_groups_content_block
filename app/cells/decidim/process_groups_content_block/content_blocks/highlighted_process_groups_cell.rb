@@ -21,6 +21,7 @@ module Decidim
           ).query
           .joins(:participatory_processes)
           .where.not(decidim_participatory_processes: { published_at: nil })
+          .where('decidim_participatory_processes.end_date < ?', DateTime.now)
           .group('decidim_participatory_process_groups.id')
           .having('COUNT(decidim_participatory_processes.id) > 0')
         end

@@ -84,7 +84,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
 
       expect(target).to have_selector(
         "article.card--process.card--stack",
-        count: local_participatory_process_groups.count
+        count: local_participatory_process_groups.count - 2
       )
     end
   end
@@ -144,7 +144,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
 
       expect(target).to have_selector(
         "article.card--process.card--stack",
-        count: local_participatory_process_groups.count
+        count: local_participatory_process_groups.count - 2
       )
     end
   end
