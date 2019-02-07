@@ -1,6 +1,6 @@
 module Decidim
   module ProcessGroupsContentBlock
-    VERSION = "0.14.4"
-    DECIDIM_VERSION = "~> 0.14"
+    VERSION = "0.15.0"
+    DECIDIM_VERSION = "~> 0.15.0"
   end
 end
