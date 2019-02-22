@@ -8,7 +8,7 @@ home page of the app.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'decidim-process_groups_content_block'
+gem "decidim-process_groups_content_block"
 ```
 
 And then execute:
