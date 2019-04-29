@@ -1,5 +1,10 @@
 # Decidim::ProcessGroupsContentBlock
 
+[![Build Status](https://travis-ci.com/mainio/decidim-module-process_groups_content_block.svg?branch=master)](https://travis-ci.com/mainio/decidim-module-process_groups_content_block)
+[![codecov](https://codecov.io/gh/mainio/decidim-module-process_groups_content_block/branch/master/graph/badge.svg)](https://codecov.io/gh/mainio/decidim-module-process_groups_content_block)
+
+The gem has been developed by [Mainio Tech](https://www.mainiotech.fi/).
+
 Adds a process groups content block to your Decidim instance to be used on the
 home page of the app.
 
