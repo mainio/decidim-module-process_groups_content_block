@@ -4,7 +4,9 @@ module Decidim
   module ProcessGroupsContentBlock
     module ContentBlocks
       class HighlightedProcessGroupsCell < Decidim::ViewModel
-        include Decidim::SanitizeHelper
+        include Decidim::ApplicationHelper # html_truncate
+        include Decidim::LayoutHelper # If icons are needed in the (customized) view
+        include Decidim::SanitizeHelper # decidim_sanitize
 
         delegate :current_organization, to: :controller
         delegate :current_user, to: :controller
@@ -19,7 +21,11 @@ module Decidim
             .query
             .joins(:participatory_processes)
             .where.not(decidim_participatory_processes: { published_at: nil })
-            .where("decidim_participatory_processes.end_date > ?", Time.current)
+            .where(
+              "decidim_participatory_processes.end_date IS NULL "\
+              "OR decidim_participatory_processes.end_date > ?",
+              Time.current
+            )
             .group("decidim_participatory_process_groups.id")
             .having("COUNT(decidim_participatory_processes.id) > 0")
         end
@@ -30,6 +36,17 @@ module Decidim
 
         def decidim_participatory_processes
           Decidim::ParticipatoryProcesses::Engine.routes.url_helpers
+        end
+
+        private
+
+        def title_for(group)
+          translated_attribute(group.name)
+        end
+
+        def description_for(group)
+          text = translated_attribute(group.description)
+          decidim_sanitize(html_truncate(text, length: 100))
         end
       end
     end
