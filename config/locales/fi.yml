@@ -1,3 +1,4 @@
+---
 fi:
   decidim:
     process_groups_content_block:
@@ -7,5 +8,5 @@ fi:
       pages:
         home:
           highlighted_process_groups:
-            active_processes: 'Aktiiviset prosessit'
-            see_all_processes: 'Näytä kaikki prosessit'
+            active_processes: Aktiiviset prosessit
+            see_all_processes: Näytä kaikki prosessit

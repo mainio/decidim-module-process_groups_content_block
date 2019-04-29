@@ -1,3 +1,4 @@
+---
 en:
   decidim:
     process_groups_content_block:
@@ -7,5 +8,5 @@ en:
       pages:
         home:
           highlighted_process_groups:
-            active_processes: 'Active processes'
-            see_all_processes: 'Show all processes'
+            active_processes: Active processes
+            see_all_processes: Show all processes
