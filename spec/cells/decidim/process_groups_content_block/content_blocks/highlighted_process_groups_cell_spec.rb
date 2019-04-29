@@ -30,14 +30,14 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
 
   context "when there are process groups without any published processes" do
     before do
-      local_participatory_process_groups.each_with_index do |group, i|
+      local_participatory_process_groups.each do |group|
         # Create only processes currently unpublished to all process groups
         create_list(
           :participatory_process,
           5,
           organization: organization,
           participatory_process_group: group,
-          published_at: nil,
+          published_at: nil
         )
       end
     end
@@ -61,7 +61,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
             organization: organization,
             participatory_process_group: group,
             start_date: past_start_date,
-            end_date: past_end_date,
+            end_date: past_end_date
           )
         else
           # Add only processes currently active to two process groups
@@ -69,7 +69,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
             :participatory_process,
             5,
             organization: organization,
-            participatory_process_group: group,
+            participatory_process_group: group
           )
         end
       end
@@ -107,8 +107,8 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
       past_start_date = Date.current - 11.days
       past_end_date = Date.current - 1.day
 
-      future_start_date = Date.current + 1.days
-      future_end_date = Date.current + 11.day
+      future_start_date = Date.current + 1.day
+      future_end_date = Date.current + 11.days
 
       local_participatory_process_groups.each_with_index do |group, i|
         if i < 2
@@ -119,7 +119,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
             organization: organization,
             participatory_process_group: group,
             start_date: past_start_date,
-            end_date: past_end_date,
+            end_date: past_end_date
           )
         else
           # Add only processes in the future to two process groups
@@ -129,7 +129,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
             organization: organization,
             participatory_process_group: group,
             start_date: future_start_date,
-            end_date: future_end_date,
+            end_date: future_end_date
           )
         end
       end

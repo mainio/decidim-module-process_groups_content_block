@@ -10,20 +10,18 @@ module Decidim
         delegate :current_user, to: :controller
 
         def show
-          if highlighted_groups.any?
-            render
-          end
+          render if highlighted_groups.any?
         end
 
         def highlighted_groups
-          Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcessGroups.new(
-            current_organization
-          ).query
-          .joins(:participatory_processes)
-          .where.not(decidim_participatory_processes: { published_at: nil })
-          .where('decidim_participatory_processes.end_date > ?', DateTime.now)
-          .group('decidim_participatory_process_groups.id')
-          .having('COUNT(decidim_participatory_processes.id) > 0')
+          Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcessGroups
+            .new(current_organization)
+            .query
+            .joins(:participatory_processes)
+            .where.not(decidim_participatory_processes: { published_at: nil })
+            .where("decidim_participatory_processes.end_date > ?", Time.current)
+            .group("decidim_participatory_process_groups.id")
+            .having("COUNT(decidim_participatory_processes.id) > 0")
         end
 
         def i18n_scope

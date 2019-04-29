@@ -1,18 +1,19 @@
+# frozen_string_literal: true
 
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "decidim/process_groups_content_block/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "decidim-process_groups_content_block"
-  spec.version       = Decidim::ProcessGroupsContentBlock::VERSION
-  spec.authors       = ["Antti Hukkanen"]
-  spec.email         = ["antti.hukkanen@mainiotech.fi"]
+  spec.name = "decidim-process_groups_content_block"
+  spec.version = Decidim::ProcessGroupsContentBlock::VERSION
+  spec.authors = ["Antti Hukkanen"]
+  spec.email = ["antti.hukkanen@mainiotech.fi"]
 
-  spec.summary       = "Process groups content block for Decidim."
-  spec.description   = "Provides a process groups content block for Decidim."
-  spec.homepage      = "https://github.com/mainio/decidim-module-process_groups_content_block"
-  spec.license       = "AGPL-3.0"
+  spec.summary = "Process groups content block for Decidim."
+  spec.description = "Provides a process groups content block for Decidim."
+  spec.homepage = "https://github.com/mainio/decidim-module-process_groups_content_block"
+  spec.license = "AGPL-3.0"
 
   spec.files = Dir[
     "{app,config,lib}/**/*",

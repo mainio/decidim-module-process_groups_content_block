@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Decidim
   module ProcessGroupsContentBlock
     class Engine < ::Rails::Engine
@@ -7,7 +9,7 @@ module Decidim
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::ProcessGroupsContentBlock::Engine.root}/app/cells")
       end
 
-      initializer 'decidim_process_groups_content_block.content_blocks' do |app|
+      initializer "decidim_process_groups_content_block.content_blocks" do
         Decidim.content_blocks.register(:homepage, :highlighted_process_groups) do |content_block|
           content_block.cell = "decidim/process_groups_content_block/content_blocks/highlighted_process_groups"
           content_block.public_name_key = "decidim.process_groups_content_block.content_blocks.highlighted_process_groups.name"
