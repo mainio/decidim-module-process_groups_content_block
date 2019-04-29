@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-process_groups_content_block (0.16.1)
+    decidim-process_groups_content_block (0.16.2)
       decidim-core (~> 0.16.0)
       decidim-participatory_processes (~> 0.16.0)
 
