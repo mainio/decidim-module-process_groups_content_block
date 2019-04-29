@@ -89,6 +89,37 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
     end
   end
 
+  context "when there are process groups with active processes with nil end date" do
+    before do
+      local_participatory_process_groups.each_with_index do |group, i|
+        # Add only processes currently active to two process groups
+        next if i >= 2
+
+        # Mark end date as nil (i.e. always active)
+        create_list(
+          :participatory_process,
+          5,
+          organization: organization,
+          participatory_process_group: group,
+          end_date: nil
+        )
+      end
+    end
+
+    it "shows the process groups element" do
+      expect(subject).to have_selector "#highlighted-process-groups"
+    end
+
+    it "shows the local process groups" do
+      target = subject.find("#highlighted-process-groups")
+
+      expect(target).to have_selector(
+        "article.card--process.card--stack",
+        count: 2
+      )
+    end
+  end
+
   # Inactive processes do not currently cause the process groups to disappear
   # from the list because the "active" filtering for the process groups does
   # not take this into account as shown in:
