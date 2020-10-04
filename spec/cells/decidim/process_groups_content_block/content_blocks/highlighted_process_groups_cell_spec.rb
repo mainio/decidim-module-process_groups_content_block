@@ -6,7 +6,7 @@ describe Decidim::ProcessGroupsContentBlock::ContentBlocks::HighlightedProcessGr
   subject { cell(content_block.cell, content_block).call }
 
   let(:organization) { create :organization }
-  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_process_groups, scope_name: :homepage }
+  let(:content_block) { create :content_block, organization: organization, manifest_name: :highlighted_process_groups, scope: :homepage }
 
   let!(:local_participatory_process_groups) do
     create_list(:participatory_process_group, 5, organization: organization)
