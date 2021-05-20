@@ -19,7 +19,7 @@ module Decidim
 
         Decidim::ParticipatoryProcessGroup
           .where(id: ids)
-          .order(Arel.sql("name ->> '#{current_locale}' ASC"))
+          .order(Arel.sql("title ->> '#{current_locale}' ASC"))
       end
 
       private

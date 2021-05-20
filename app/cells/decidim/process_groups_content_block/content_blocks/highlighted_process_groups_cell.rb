@@ -32,7 +32,7 @@ module Decidim
         private
 
         def title_for(group)
-          translated_attribute(group.name)
+          translated_attribute(group.title)
         end
 
         def description_for(group)

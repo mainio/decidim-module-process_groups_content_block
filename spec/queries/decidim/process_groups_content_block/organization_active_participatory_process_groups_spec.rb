@@ -17,21 +17,21 @@ module Decidim::ProcessGroupsContentBlock
         create_list(:participatory_process_group, 5)
       end
 
-      it "orders by group names" do
-        # Define the names explicitly because sort algorithms differ in Ruby
+      it "orders by group titles" do
+        # Define the titles explicitly because sort algorithms differ in Ruby
         # and PostgreSQL. Therefore, we need to know exactly what order to
         # expect from the DB.
-        names = [
+        titles = [
           "Abc starts the alphabet",
           "Def continues after that",
           "Ghi is the end of our list"
         ]
 
-        names.each do |name|
+        titles.each do |title|
           group = create(
             :participatory_process_group,
             organization: organization,
-            name: organization.available_locales.map { |l| [l.to_s, name] }.to_h
+            title: organization.available_locales.map { |l| [l.to_s, title] }.to_h
           )
           create(
             :participatory_process,
@@ -42,7 +42,7 @@ module Decidim::ProcessGroupsContentBlock
           )
         end
 
-        expect(subject.pluck(:name).map { |n| n[I18n.locale.to_s] }).to eq(names)
+        expect(subject.pluck(:title).map { |n| n[I18n.locale.to_s] }).to eq(titles)
       end
 
       context "when there are only process groups without any processes" do
