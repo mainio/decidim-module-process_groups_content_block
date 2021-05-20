@@ -1,6 +1,6 @@
 # Decidim::ProcessGroupsContentBlock
 
-[![Build Status](https://travis-ci.com/mainio/decidim-module-process_groups_content_block.svg?branch=master)](https://travis-ci.com/mainio/decidim-module-process_groups_content_block)
+[![Build Status](https://github.com/mainio/decidim-module-process_groups_content_block/actions/workflows/ci_process_groups_content_block.yml/badge.svg)](https://github.com/mainio/decidim-module-process_groups_content_block/actions)
 [![codecov](https://codecov.io/gh/mainio/decidim-module-process_groups_content_block/branch/master/graph/badge.svg)](https://codecov.io/gh/mainio/decidim-module-process_groups_content_block)
 
 The gem has been developed by [Mainio Tech](https://www.mainiotech.fi/).
