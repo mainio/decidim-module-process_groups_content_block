@@ -10,8 +10,8 @@ base_path = ""
 base_path = "../" if File.basename(__dir__) == "development_app"
 require_relative "#{base_path}lib/decidim/process_groups_content_block/version"
 
-#DECIDIM_VERSION = Decidim::ProcessGroupsContentBlock::DECIDIM_VERSION
-DECIDIM_VERSION = { github: "decidim/decidim", branch: "develop" }
+DECIDIM_VERSION = Decidim::ProcessGroupsContentBlock::DECIDIM_VERSION
+# DECIDIM_VERSION = { github: "decidim/decidim", branch: "develop" }
 
 gem "decidim", DECIDIM_VERSION
 gem "decidim-process_groups_content_block", path: "."
