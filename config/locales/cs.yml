@@ -1,0 +1,12 @@
+---
+cs:
+  decidim:
+    process_groups_content_block:
+      content_blocks:
+        highlighted_process_groups:
+          name: Zvýrazněné skupiny procesů
+      pages:
+        home:
+          highlighted_process_groups:
+            active_processes: Aktivní procesy
+            see_all_processes: Zobrazit všechny procesy
